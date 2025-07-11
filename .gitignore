@@ -1,0 +1,56 @@
+# Python specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.env # For .env files if you use them for environment variables
+.venv/ # Another common virtual environment name
+
+# Editor/IDE specific
+.vscode/ # VS Code settings (optional, if you have user-specific settings you don't want to share)
+.idea/ # IntelliJ / PyCharm projects
+*.sublime-project
+*.sublime-workspace
+.DS_Store # macOS specific
+Thumbs.db # Windows specific
+ehthumbs.db
+.cache/ # General cache directories
+
+# Jupyter Notebook specific
+.ipynb_checkpoints/ # Jupyter Notebook checkpoints
+*.ipynb_checkpoints
+
+# ML/Data specific
+# MLflow output directory - VERY IMPORTANT to ignore for MLflow projects
+# This keeps your Git repo clean from experiment run data
+mlruns/
+
+# Large model files or artifacts that shouldn't be versioned directly by Git
+# If you are saving large models directly in the 'models/' folder and NOT
+# using DVC/Git LFS, you might want to ignore specific large files here.
+# However, if 'models/' is meant to contain versioned model artifacts (e.g., small ones)
+# then leave it uncommented.
+# *.h5
+# *.pkl
+# *.bin
+# *.joblib
+# models/*.pth # PyTorch models
+# models/*.ckpt # Checkpoints
+
+# Data specific (if certain data files are too large or regenerated)
+# Generally, raw data in 'data/' should be versioned, perhaps with DVC.
+# Only ignore temporary or regenerated data if absolutely necessary.
+# data/*.csv.tmp
+# data/*.parquet.tmp
+
+# Web specific (if node_modules or other build artifacts are present in 'web/')
+web/node_modules/ # If your web frontend uses Node.js/npm
+web/dist/ # Common build output directory for web projects
+web/build/ # Another common build output directory
+
+# Logs
+*.log
+logs/
