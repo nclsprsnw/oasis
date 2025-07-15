@@ -27,6 +27,11 @@ This project follows a structured approach to machine learning development. Here
   * `README.md`: This file, providing an overview and instructions for the project.
   * `web/`: Houses the code for the **web application** (frontend) that interacts with the prediction API to display results or allow user input.
 
+## Requirements
+
+This project requires:
+  * [Python 3.13](https://www.python.org/)
+
 ## Setup and Installation
 
 To get this project up and running locally, follow these steps:
