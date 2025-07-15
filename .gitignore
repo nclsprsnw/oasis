@@ -6,8 +6,10 @@ __pycache__/
 .Python
 env/
 venv/
+oasis/
 *.env # For .env files if you use them for environment variables
 .venv/ # Another common virtual environment name
+.oasis/
 
 # Editor/IDE specific
 .vscode/ # VS Code settings (optional, if you have user-specific settings you don't want to share)
