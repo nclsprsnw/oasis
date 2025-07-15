@@ -38,8 +38,8 @@ To get this project up and running locally, follow these steps:
     ```
 2.  **Create a virtual environment (recommended):**
     ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows: `oasis\Scripts\activate`
+    python -m venv oasis
+    source oasis/bin/activate  # On Windows: `oasis\Scripts\activate`
     ```
 3.  **Install dependencies:**
     ```bash
