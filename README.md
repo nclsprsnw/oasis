@@ -27,6 +27,11 @@ This project follows a structured approach to machine learning development. Here
   * `README.md`: This file, providing an overview and instructions for the project.
   * `web/`: Houses the code for the **web application** (frontend) that interacts with the prediction API to display results or allow user input.
 
+## Requirements
+
+This project requires:
+  * [Python 3.13](https://www.python.org/)
+
 ## Setup and Installation
 
 To get this project up and running locally, follow these steps:
@@ -38,8 +43,8 @@ To get this project up and running locally, follow these steps:
     ```
 2.  **Create a virtual environment (recommended):**
     ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows: `oasis\Scripts\activate`
+    python -m venv oasis
+    source oasis/bin/activate  # On Windows: `oasis\Scripts\activate`
     ```
 3.  **Install dependencies:**
     ```bash
@@ -71,3 +76,18 @@ To get this project up and running locally, follow these steps:
 ## Contributing
 
 We welcome contributions to this project\! Please see our `CONTRIBUTING.md` (if you plan to create one) for guidelines on how to contribute.
+
+
+
+
+## Principal features
+
+Space coordinate : INSEE "Commune" index
+
+Time unit : quarter
+Historical Time range :  10 years (2014-2024)
+Prediction Time range :  5 years ?
+
+
+## Sharing table
+
