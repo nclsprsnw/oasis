@@ -91,3 +91,4 @@ Prediction Time range :  5 years ?
 
 ## Sharing table
 
+![alt text](./docs/images/sharing.png)
