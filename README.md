@@ -76,3 +76,18 @@ To get this project up and running locally, follow these steps:
 ## Contributing
 
 We welcome contributions to this project\! Please see our `CONTRIBUTING.md` (if you plan to create one) for guidelines on how to contribute.
+
+
+
+
+## Principal features
+
+Space coordinate : INSEE "Commune" index
+
+Time unit : quarter
+Historical Time range :  10 years (2014-2024)
+Prediction Time range :  5 years ?
+
+
+## Sharing table
+
