@@ -50,6 +50,8 @@ To get this project up and running locally, follow these steps:
     ```bash
     pip install -r requirements.txt # (You'll need to create this file with your project dependencies)
     ```
+4.  **Set up environment variables:**
+    Create a `.env` file in the root directory by copying the `.env.sample` file and filling the missing values.
 
 ## Project dependencies
 
