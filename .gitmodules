@@ -1,0 +1,3 @@
+[submodule "mlflow"]
+	path = mlflow
+	url = git@hf.co:spaces/Dreipfelt/oasis-mlflow
