@@ -1,6 +1,21 @@
 # Information sur les sources de données
 Cette page donne les sources de données utilisées pour ce projet.
 
+## Information géographique
+
+WIP: cf data INSEE_COM from Badaoui
+Supprimer les duplicates du code INSEE et les colonnes.
+**Attention:** en 2021, il y a eu le fusion de 5 communes en 2.
+[Nouvelles communes](https://fr.wikipedia.org/wiki/Liste_des_communes_nouvelles_créées_en_2021)
+
+### projection de Lambert
+Passage de X, Y à lat, lon
+
+### regrouppement des stations de pollution
+
+Il faut associer les stations de mesure à des communes.
+
+
 ## Evènements naturels
 
 Collecte des données géo-environnementales
