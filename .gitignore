@@ -74,3 +74,5 @@ web/build/ # Another common build output directory
 # Logs
 *.log
 logs/
+
+.env
