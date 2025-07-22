@@ -38,7 +38,7 @@ To get this project up and running locally, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/nclsprsnw/oasis.git
+    git clone --recurse-submodules https://github.com/nclsprsnw/oasis.git
     cd oasis
     ```
 2.  **Create a virtual environment (recommended):**
@@ -50,6 +50,16 @@ To get this project up and running locally, follow these steps:
     ```bash
     pip install -r requirements.txt # (You'll need to create this file with your project dependencies)
     ```
+4.  **Set up environment variables:**
+    Create a `.env` file in the root directory by copying the `.env.sample` file and filling the missing values.
+
+## Project dependencies
+
+This project uses several others git repositories as submodules.
+
+  - `web`: this directory contains [the web application](https://huggingface.co/spaces/Dreipfelt/oasis-web) code hosted on Hugging Face Spaces, which is used to interact with the API.
+  - `api`: this directory contains [the project API](https://huggingface.co/spaces/Dreipfelt/oasis-api) hosted on Hugging Face Spaces, which is used to serve predictions.
+  - `mlflow`: this directory contains [the MLflow server](https://huggingface.co/spaces/Dreipfelt/oasis-mlflow) configuration files hosted on Hugging Face Spaces, which are used to track experiments and manage models.
 
 ## Usage
 
