@@ -98,6 +98,3 @@ Time unit : quarter
 Historical Time range :  10 years (2014-2024)
 Prediction Time range :  5 years ?
 
-
-## Sharing table
-
