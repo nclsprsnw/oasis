@@ -6,4 +6,4 @@
 	url = git@hf.co:spaces/Dreipfelt/oasis-api
 [submodule "web"]
 	path = web
-	url = git@hf.co:spaces/Dreipfelt/oasis-web
+	url = git@hf.co:spaces/oasisorg/oasis-web
