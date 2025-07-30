@@ -1,0 +1,91 @@
+Objectif :
+Prédire, pour chaque commune de France, l’évolution du prix moyen au m² sur 5 ans (2025-2029), en s’appuyant uniquement sur l’historique réel disponible (2014-2024), de manière robuste, transparente et reproductible.
+
+Données utilisées
+Base de données réelle?: historique 2014-2024 des transactions immobilières, par commune.
+
+Colonnes principales?:
+
+Code commune INSEE, année, prix moyen au m², nombre de mutations (transactions), latitude, longitude.
+
+Aucune donnée externe?: le modèle n’utilise ni indicateur macroéconomique, ni prévision “magique” du futur.
+
+Approche et pipeline
+1. Nettoyage et création des variables dynamiques
+Pour chaque commune, le modèle reconstruit son passé?:
+
+Prix moyen au m² des 1, 2 et 3 dernières années (lags + rolling mean)
+
+Variations (%) sur 1 an, 2 ans
+
+Nombre de mutations et tendance du volume de ventes
+
+Aucune fuite de données?: seules les données “connues à l’instant T” sont utilisées (pas d’info du futur).
+
+2. Séparation stricte entraînement/validation/test
+Train?: 2014-2020
+
+Validation?: 2021-2022 (pour évaluer pendant l’ajustement)
+
+Test?: 2023-2024 (pour évaluer la capacité du modèle à prédire le vrai futur)
+
+3. Modélisation
+Modèle choisi?: LightGBM Regressor
+
+Pourquoi?? Efficace, rapide, et robuste sur des données tabulaires et séries temporelles
+
+Entraînement sur toutes les communes, avec uniquement les variables causales du passé
+
+Évaluation sur les années jamais vues par le modèle, selon 3 critères :
+
+MAE (Erreur Absolue Moyenne)
+
+RMSE (Erreur Quadratique Moyenne)
+
+R² (Coefficient de détermination = qualité d’explication du modèle)
+
+4. Prédiction du futur (2025-2029)
+Prédiction “rolling”?: le modèle prédit chaque année à partir de l’année précédente, en mode “pas à pas” (comme dans la vraie vie, sans triche).
+
+Pour chaque commune, la dynamique locale est respectée.
+
+Résultats et visualisation
+Prédiction du prix au m²?: pour chaque commune, pour chaque année jusqu’en 2029
+
+Carte interactive (Plotly/Folium)?:
+
+Affichage France entière
+
+Au survol de chaque commune, on voit?:
+
+Prix réel 2024
+
+Tous les prix futurs prédits (2025-2029)
+
+Les variations (%) d’évolution
+
+Heatmap ou points colorés pour faire ressortir les zones dynamiques (croissance, stagnation, baisse…).
+
+Forces et limites du modèle
+Forces?:
+Robuste et honnête?: pas de fuite de données, pas de “devinette magique”
+
+Spécifique à chaque commune?: le modèle apprend la vraie dynamique locale (ex?: Paris, IDF, zones rurales…)
+
+Évaluation rigoureuse sur le vrai futur (test 2023-2024)
+
+Limites?:
+Aucune variable socio-économique ou géopolitique externe (chômage, population, revenus, politique de la ville…)
+
+Les dynamiques très “anormales” ou les chocs exogènes ne sont pas anticipés (crise majeure, politique logement, etc.)
+
+Le modèle “extrapole” la tendance passée?: il ne peut pas prédire une rupture soudaine non encore observée.
+
+Conclusion
+Ce modèle permet de?:
+
+Cartographier et quantifier les dynamiques immobilières à l’échelle de chaque commune
+
+Fournir un outil de prévision réaliste basé sur l’historique réel, utilisable par les élus, les professionnels ou les citoyens
+
+Visualiser immédiatement les zones en croissance, stagnation ou recul du marché immobilier

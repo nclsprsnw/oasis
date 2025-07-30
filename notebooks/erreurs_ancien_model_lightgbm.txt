@@ -1,0 +1,50 @@
+1. Séparation Train/Test et Fuite de Données
+Problème majeur
+La séparation train/test n’est pas chronologique.
+
+Pour une série temporelle (2014-2024), il est fondamental que le modèle ne «voie» jamais le futur pendant l’entraînement.
+
+Exemple de fuite possible : si on mélange toutes les années pour faire un split au hasard, tu utilises l’info du futur pour prédire le passé, 
+ce qui donne de fausses bonnes performances.
+
+Il faut TOUJOURS splitter chronologiquement : par exemple, train = 2014-2020, validation = 2021-2022, test = 2023-2024.
+
+2. Structure du Dataset et Prédiction par Commune
+Problème courant
+Chaque commune a sa propre dynamique temporelle (certaines stagnent, d’autres explosent, certaines chutent…).
+
+Si on met toutes les communes ensemble dans un seul modèle, sans tenir compte de la dynamique spécifique, ça risque :
+
+d’aplatir les prédictions (peu de variabilité réelle)
+
+d’introduire des corrélations croisées non pertinentes.
+
+3. Feature Engineering
+Problème potentiel
+Les features utilisées semblent parfois «statique» (par exemple des moyennes sur toute la période, 
+ou des variables qui n’évoluent pas année par année), ce qui n’a pas de sens pour une série temporelle : 
+on ne doit utiliser que ce que on connais à l’instant T.
+
+Attention aux features «aggrégées» sur l’ensemble du dataset : elles sont très souvent source de fuite.
+
+4. Choix du Modèle
+LightGBM n’est PAS un modèle séquentiel : il fonctionne très bien pour des données tabulaires classiques, 
+mais il ne capte pas la dynamique temporelle aussi bien qu’un modèle dédié (Prophet, ARIMA, LSTM, etc.)
+
+Il peut être intéressant sur certains problèmes, mais pour la prévision d’une valeur temporelle future par série (commune), 
+un modèle time series est plus pertinent.
+
+5. Validation et Évaluation
+Il n’y a souvent pas de vraie validation sur le futur : on doit impérativement évaluer le modèle sur les années après celles du train.
+
+Par exemple, on entraîne jusqu’en 2021, on valide sur 2022-2023, puis on teste sur 2024. Ensuite, on peut prédire 2025+.
+
+
+
+Résumé des causes d’erreur principale :
+
+Fuite de données (train/test pas chronologique)
+
+Feature engineering non causal (utilisation du futur dans le passé)
+
+Validation biaisée
