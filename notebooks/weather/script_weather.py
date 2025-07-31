@@ -1,11 +1,20 @@
+"""
+Weather score calculation module for climate risk assessment.
+
+This module processes weather data to calculate risk scores for different
+climate-related indicators including heat, rainfall, drought, and extreme events.
+"""
+
 import pandas as pd
-import os
-import boto3
-from dotenv import load_dotenv
-import botocore
 
 
 def weather_csv():
+    """
+    Process weather data and calculate climate risk scores.
+
+    Returns:
+        pandas.DataFrame: Processed weather data with risk scores by commune and year.
+    """
     codes_metro = [
         "01",
         "02",
@@ -132,7 +141,10 @@ def weather_csv():
     #         raise
 
     # try:
-    #     response = s3_client.get_object(Bucket=AWS_S3_BUCKET, Key="processed/referentiel/ref_espace_communes.csv")
+    #     response = s3_client.get_object(
+    #         Bucket=AWS_S3_BUCKET,
+    #         Key="processed/referentiel/ref_espace_communes.csv"
+    #     )
 
     #     data_insee = pd.read_csv(response.get('Body'), index_col=0)
 
@@ -261,26 +273,24 @@ def weather_csv():
     def heat_related_indicators(temp_max_abs_celsius, days_temp_max_35c_plus):
         if (temp_max_abs_celsius <= 30) and (days_temp_max_35c_plus == 0):
             return "Low"
-        elif (30 < temp_max_abs_celsius <= 35) or (1 <= days_temp_max_35c_plus <= 2):
+        if (30 < temp_max_abs_celsius <= 35) or (1 <= days_temp_max_35c_plus <= 2):
             return "Moderate"
-        elif (35 < temp_max_abs_celsius <= 40) or (3 <= days_temp_max_35c_plus <= 5):
+        if (35 < temp_max_abs_celsius <= 40) or (3 <= days_temp_max_35c_plus <= 5):
             return "High"
-        elif (temp_max_abs_celsius > 40) or (days_temp_max_35c_plus > 5):
+        if (temp_max_abs_celsius > 40) or (days_temp_max_35c_plus > 5):
             return "Critical"
-        else:
-            return "Unknown"
+        return "Unknown"
 
     def heavy_rainfall(precip_max_24h_mm, days_precip_50mm_plus):
         if precip_max_24h_mm <= 20 and days_precip_50mm_plus == 0:
             return "Low"
-        elif (20 < precip_max_24h_mm <= 40) or (days_precip_50mm_plus == 1):
+        if (20 < precip_max_24h_mm <= 40) or (days_precip_50mm_plus == 1):
             return "Moderate"
-        elif (40 < precip_max_24h_mm <= 60) or (2 <= days_precip_50mm_plus <= 3):
+        if (40 < precip_max_24h_mm <= 60) or (2 <= days_precip_50mm_plus <= 3):
             return "High"
-        elif precip_max_24h_mm > 60 or days_precip_50mm_plus > 3:
+        if precip_max_24h_mm > 60 or days_precip_50mm_plus > 3:
             return "Critical"
-        else:
-            return "Unknown"
+        return "Unknown"
 
     def drought(precip_total_mm, sunshine_duration_min, temp_mean_avg_celsius):
         score = 0
@@ -304,12 +314,11 @@ def weather_csv():
 
         if score <= 1:
             return "Low"
-        elif score == 2 or score == 3:
+        if score in (2, 3):
             return "Moderate"
-        elif score in [4, 5]:
+        if score in [4, 5]:
             return "High"
-        else:
-            return "Critical"
+        return "Critical"
 
     def extrem_events(wind_gust_max_m_s, days_with_thunderstorm, days_with_hail):
         score = 0
@@ -331,12 +340,11 @@ def weather_csv():
 
         if score == 0:
             return "Low"
-        elif score == 1 or score == 2:
+        if score in (1, 2):
             return "Moderate"
-        elif score == 3 or score == 4:
+        if score in (3, 4):
             return "High"
-        else:
-            return "Critical"
+        return "Critical"
 
     data_weather_14_24["heat_level"] = data_weather_14_24.apply(
         lambda row: heat_related_indicators(
@@ -392,12 +400,11 @@ def weather_csv():
     def risk_score_level(score):
         if score < 0.5:
             return "Low"
-        elif score < 1.5:
+        if score < 1.5:
             return "Moderate"
-        elif score < 2.5:
+        if score < 2.5:
             return "High"
-        else:
-            return "Critical"
+        return "Critical"
 
     data_weather_14_24["risk_score_level"] = data_weather_14_24["avg_risk_score"].apply(
         risk_score_level

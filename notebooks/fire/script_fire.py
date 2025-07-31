@@ -1,10 +1,19 @@
+"""
+Fire data processing module for wildfire risk assessment.
+
+This module processes fire data from CSV files and calculates fire risk scores.
+"""
+
 import pandas as pd
-import os
-import boto3
-from dotenv import load_dotenv
-import botocore
+
 
 def fire_csv():
+    """
+    Load and process fire data from CSV files.
+
+    Returns:
+        pandas.DataFrame: Processed fire data with risk calculations.
+    """
     # AWS_S3_BUCKET = os.getenv("AWS_S3_BUCKET")
     # AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
     # AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
@@ -17,12 +26,17 @@ def fire_csv():
     #     aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
     # )
 
-    # response = s3_client.get_object(Bucket=AWS_S3_BUCKET, Key="raw/fire/Incendies.csv")
+    # response = s3_client.get_object(
+    #     Bucket=AWS_S3_BUCKET, Key="raw/fire/Incendies.csv"
+    # )
 
     # data_fire = pd.read_csv(response.get("Body"), sep=';', skiprows=3)
     # data_fire.head()
 
-    # response = s3_client.get_object(Bucket=AWS_S3_BUCKET, Key="processed/referentiel/ref_espace_communes.csv")
+    # response = s3_client.get_object(
+    #     Bucket=AWS_S3_BUCKET,
+    #     Key="processed/referentiel/ref_espace_communes.csv"
+    # )
 
     # data_insee = pd.read_csv(response.get('Body'), index_col=0)
     # data_insee.head()
@@ -213,12 +227,11 @@ def fire_csv():
     def danger_fire_level(ratio):
         if ratio < 0.0001:
             return "Low"
-        elif ratio < 0.0005:
+        if ratio < 0.0005:
             return "Moderate"
-        elif ratio < 0.001:
+        if ratio < 0.001:
             return "High"
-        else:
-            return "Critical"
+        return "Critical"
 
     agg_data_fire["danger_fire_level"] = agg_data_fire["ratio"].apply(danger_fire_level)
     print("Agg data fire + two columns:", agg_data_fire.shape)
