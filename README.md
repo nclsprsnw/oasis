@@ -57,9 +57,8 @@ To get this project up and running locally, follow these steps:
 
 This project uses several others git repositories as submodules.
 
-  - `web`: this directory contains [the web application](https://huggingface.co/spaces/Dreipfelt/oasis-web) code hosted on Hugging Face Spaces, which is used to interact with the API.
-  - `api`: this directory contains [the project API](https://huggingface.co/spaces/Dreipfelt/oasis-api) hosted on Hugging Face Spaces, which is used to serve predictions.
-  - `mlflow`: this directory contains [the MLflow server](https://huggingface.co/spaces/Dreipfelt/oasis-mlflow) configuration files hosted on Hugging Face Spaces, which are used to track experiments and manage models.
+  - `web`: this directory contains [the web application](https://huggingface.co/spaces/oasisorg/oasis-web) code hosted on Hugging Face Spaces, which is used to interact with the API.
+  - `mlflow`: this directory contains [the MLflow server](https://huggingface.co/spaces/oasisorg/oasis-mlflow) configuration files hosted on Hugging Face Spaces, which are used to track experiments and manage models.
 
 ## Usage
 
