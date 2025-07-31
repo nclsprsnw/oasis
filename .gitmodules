@@ -1,9 +1,3 @@
-[submodule "mlflow"]
-	path = mlflow
-	url = git@hf.co:spaces/Dreipfelt/oasis-mlflow
-[submodule "api"]
-	path = api
-	url = git@hf.co:spaces/Dreipfelt/oasis-api
 [submodule "web"]
 	path = web
 	url = git@hf.co:spaces/oasisorg/oasis-web
