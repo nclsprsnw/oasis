@@ -1,3 +1,6 @@
 [submodule "web"]
 	path = web
 	url = git@hf.co:spaces/oasisorg/oasis-web
+[submodule "mlflow"]
+	path = mlflow
+	url = git@hf.co:spaces/oasisorg/oasis-mlflow
