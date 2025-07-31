@@ -3,6 +3,7 @@ Fire data processing module for wildfire risk assessment.
 
 This module processes fire data from CSV files and calculates fire risk scores.
 """
+# pylint: disable=duplicate-code
 
 import pandas as pd
 

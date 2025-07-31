@@ -3,6 +3,7 @@ Fire data processing module for wildfire risk assessment.
 
 This module processes fire data from CSV files and calculates fire risk scores.
 """
+# pylint: disable=duplicate-code
 
 import pandas as pd
 
@@ -41,7 +42,10 @@ def fire_csv():
     # data_insee = pd.read_csv(response.get('Body'), index_col=0)
     # data_insee.head()
 
-    # response = s3_client.get_object(Bucket=AWS_S3_BUCKET, Key="processed/surface departement/surface_departements.csv")
+    # response = s3_client.get_object(
+    #     Bucket=AWS_S3_BUCKET,
+    #     Key="processed/surface departement/surface_departements.csv"
+    # )
     # data_depart_surface = pd.read_csv(response.get('Body'))
     # data_depart_surface.head()
 

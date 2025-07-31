@@ -4,11 +4,12 @@ Weather score calculation module for climate risk assessment.
 This module processes weather data to calculate risk scores for different
 climate-related indicators including heat, rainfall, drought, and extreme events.
 """
+# pylint: disable=duplicate-code
 
 import pandas as pd
 
 
-def weather_score_df():
+def weather_score_df():  # pylint: disable=too-many-locals,too-many-statements
     """
     Process weather data and calculate climate risk scores.
 
@@ -417,7 +418,9 @@ def weather_score_df():
     #     else:
     #         return 'Critical'
 
-    # data_weather_14_24['risk_score_level'] = data_weather_14_24['avg_risk_score'].apply(risk_score_level)
+    # data_weather_14_24['risk_score_level'] = data_weather_14_24[
+    #     'avg_risk_score'
+    # ].apply(risk_score_level)
 
     # data_risk_by_dept = (
     # data_weather_14_24
