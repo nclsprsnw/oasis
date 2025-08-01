@@ -25,10 +25,9 @@ This project aims to predict real estate prices, primarily focusing on the impac
 
 This project follows a structured approach to machine learning development. Here's an overview of the directories:
 
-  * `api/`: Contains the code for the **prediction API**. This is where the inference logic resides, allowing other applications to query the trained model for predictions.
   * `data/`: Stores all **raw and processed data**. This includes historical real estate data, climate event data, and any derived features used for training.
   * `mlflow/`: Dedicated to **MLflow server configuration**. This directory will contain files necessary for setting up and deploying an MLflow tracking server (e.g., Dockerfiles, server-specific `requirements.txt`).
-  * `ml/`: Holds the **python files** related to the training of the ML models.
+  * `models/`: Holds the **python files** related to the training of the ML models.
   * `notebooks/`: Contains **Jupyter notebooks** for exploratory data analysis (EDA), model experimentation, training, and result visualization.
   * `README.md`: This file, providing an overview and instructions for the project.
   * `web/`: Houses the code for the **web application** (frontend) that interacts with the prediction API to display results or allow user input.
