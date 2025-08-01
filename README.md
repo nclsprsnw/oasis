@@ -72,11 +72,6 @@ This project uses several others git repositories as submodules.
   * Explore and run the Jupyter notebooks in `notebooks/` to understand the model development process.
   * MLflow tracking will automatically log parameters, metrics, and models to the configured MLflow server).
 
-### Running the API
-
-  * Navigate to the `api/` directory.
-  * Instructions for running the API server (e.g., `uvicorn main:app --reload`) will be detailed within the `api/` directory's own README or documentation.
-
 ### Running the Web Application
 
   * Navigate to the `web/` directory.
@@ -85,15 +80,4 @@ This project uses several others git repositories as submodules.
 ## Contributing
 
 We welcome contributions to this project\! Please see our `CONTRIBUTING.md` (if you plan to create one) for guidelines on how to contribute.
-
-
-
-
-## Principal features
-
-Space coordinate : INSEE "Commune" index
-
-Time unit : quarter
-Historical Time range :  10 years (2014-2024)
-Prediction Time range :  5 years ?
 
