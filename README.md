@@ -1,6 +1,12 @@
 # Oasis - A Real Estate Price Prediction
 
-![Oasis logo](./docs/images/oasis_logo.png)
+<p align="center">
+  <img src="./docs/images/oasis_logo.png" alt="Oasis logo"/>
+</p>
+
+[![Python 3.13](https://img.shields.io/badge/Python-3.13-blue.svg)](https://www.python.org/)
+[![Jupyter Notebook](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
+[![Hugging Face Spaces](https://img.shields.io/badge/HuggingFace-Spaces-blue)](https://huggingface.co/spaces/oasisorg/oasis-web)
 
 ## Project Overview
 
